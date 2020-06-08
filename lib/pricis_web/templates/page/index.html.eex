@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="title" >
+    <code>p r i c i s</code>
+  </h1>
+
+  <%= form_for @conn, Routes.page_path(@conn, :create_mapping), [method: :post], fn f ->  %>
+    <div class="field">
+      <label class="label">
+        Link to shorten
+      </label>
+      <div class="control">
+        <%= text_input f, :url, [class: "input",
+          placeholder: "eg. https://google.com"] %>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <%= submit "Submit", [class: "button is-link"] %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

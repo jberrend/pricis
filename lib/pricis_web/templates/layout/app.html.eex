@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <title>Pricis</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+
+      <% error_message = get_flash(@conn, :error) %>
+      <%= if error_message do %>
+        <article class="message is-danger">
+          <div class="message-header">
+            <p>Error!</p>
+            <%# <button class="delete" aria-label="delete"></button> %>
+          </div>
+          <div class="message-body">
+            <%= error_message %>
+          </div>
+        </article>
+      <% end %>
+      <%= @inner_content %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="container">
+<% destination = Routes.page_url(@conn, :redirect_token, @token) %>
+  <h1>
+    Your result: <a href="<%= destination %>"><%= destination %></a>
+  </h1>
+  <button onclick="copyClipboard()">Copy link</button>
+</div>
